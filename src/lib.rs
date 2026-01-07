@@ -1,4 +1,4 @@
-use rustfft::{FftNum, FftPlanner, num_complex::Complex, num_traits::FromPrimitive};
+use rustfft::{FftNum, FftPlanner, num_complex::Complex};
 
 /// Hilbert_transform is a library written in Rust to perform the hilbert transformation like
 /// Matlab/Octave or scipy.signals.hilbert.
@@ -17,7 +17,7 @@ use rustfft::{FftNum, FftPlanner, num_complex::Complex, num_traits::FromPrimitiv
 /// hilbert_output will be equal to: [Complex { re: 1.0, im: 1.0 }, Complex { re: 2.0, im: -1.0 }, Complex { re: 3.0, im: -1.0 }, Complex { re: 4.0, im: 1.0 }]
 ///
 
-pub fn hilbert<T: FftNum + FromPrimitive>(input: &[T]) -> Vec<Complex<T>> {
+pub fn hilbert<T: FftNum>(input: &[T]) -> Vec<Complex<T>> {
 
     let len = input.len();
     let mut planner = FftPlanner::<T>::new();
